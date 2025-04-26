@@ -55,20 +55,4 @@ formulario.addEventListener("submit", e =>{
   }
 })
 
-/*API región*/
-var region = "https://apis.digital.gob.cl/dpa/regiones";
-fetch(region).then(function(result){
-  if(result.ok){
-    return result.json();
-  }
-
-}).then(function(data){
-  data.forEach(function(element){
-    let regiones = document.getElementById("regionusu");
-    let opt = document.createElement("option");
-    opt.appendChild(document.createTextNode(element.nombre));
-    opt.value=element.codigo;
-    regiones.appendChild(opt);
-  })
-})
 
