@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    
 
     #Pagina iniciar/ Solo carga pagina
     path('iniciar/',iniciar,name="iniciar"),
@@ -75,5 +76,8 @@ urlpatterns = [
 
     path('edicionProducto/<idProducto>', edicionProducto, name="edicionProducto"),
     path('editarProducto/<idProducto>', editarProducto, name="editarProducto"),
+
+    #api
+    path('api/', include('rest_api.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

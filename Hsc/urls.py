@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_api.viewsLogin import login
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Inicio.urls')),
-]
-
+    path('api/', include('rest_api,urls')),
+    path('login/', login, name='login'),
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
