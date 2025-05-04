@@ -1,3 +1,5 @@
+from rest_api.models import Producto as ProductoSimple, Cliente
+from rest_api.serializers import ProductoSerializer, ClienteSerializer
 from django.shortcuts import render
 from Inicio.models import Usuario, TipoUsuario, Comuna, Region, Direccion, Venta, Categoria, TipoProd, Marca, Modelo, Producto, Detalle
 from .serializers import (
@@ -136,3 +138,29 @@ def vista_usuario(request, id):
     elif request.method == 'DELETE':
         usuario.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET', 'POST'])
+def lista_producto_simple(request):
+    if request.method == 'GET':
+        productos = ProductoSimple.objects.all()
+        serializer = ProductoSerializer(productos, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = ProductoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET', 'POST'])
+def lista_cliente(request):
+    if request.method == 'GET':
+        clientes = Cliente.objects.all()
+        serializer = ClienteSerializer(clientes, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = ClienteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
