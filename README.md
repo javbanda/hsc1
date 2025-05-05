@@ -1,58 +1,127 @@
- Tienda Online HSC Componentes y Artículos Gamer.
- HSC es una tienda de articulos gamer, de la mejor calidad. Somos una tienda en línea dedicada a la venta de productos para gamers, consolas, accesorios, y otros artículos relacionados con el mundo geek. 
- La tienda ofrece una interfaz amigable, opciones de compra y pago, así como la posibilidad de explorar productos según categorías.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tienda Online HSC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
 
- Descripción:
-Este proyecto es una plataforma de comercio electrónico para la venta de artículos gamer. La página incluye funcionalidades como:
+    h1, h2, h3 {
+      color: #1a1a1a;
+    }
 
-Visualización de productos (con detalles como nombre, descripción y precio).
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
 
-Filtros para buscar productos según categoría, precio y popularidad.
+    h2 {
+      font-size: 2em;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
 
-Carrito de compras.
+    h3 {
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
 
-Integración con un sistema de pagos.
+    p {
+      margin: 10px 0;
+    }
 
-Registro de usuarios y opciones de inicio de sesión.
+    ul {
+      margin-left: 20px;
+    }
 
+    section {
+      margin-bottom: 30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
 
-Tecnologías Utilizadas
-Frontend:
+  <h1>Tienda Online HSC - Componentes y Artículos Gamer</h1>
 
-CSS
-HHTML
-JavaScript
-Bootstrap
+  <section>
+    <p><strong>HSC</strong> es una tienda en línea dedicada a ofrecer productos gamer de la mejor calidad. Vendemos consolas, accesorios y artículos geek con una interfaz amigable que permite comprar fácilmente según categorías.</p>
+  </section>
 
+  <section>
+    <h2>Descripción del Proyecto</h2>
+    <p>Esta plataforma de comercio electrónico incluye funcionalidades como:</p>
+    <ul>
+      <li>Visualización de productos con detalles (nombre, descripción y precio).</li>
+      <li>Filtros para buscar productos por categoría, precio y popularidad.</li>
+      <li>Carrito de compras integrado.</li>
+      <li>Sistema de pagos.</li>
+      <li>Registro e inicio de sesión de usuarios.</li>
+    </ul>
+  </section>
 
-Backend:
+  <section>
+    <h2>Tecnologías Utilizadas</h2>
+    <h3>Frontend:</h3>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Bootstrap</li>
+    </ul>
 
-Django 
-Django REST Framework
+    <h3>Backend:</h3>
+    <ul>
+      <li>Django</li>
+      <li>Django REST Framework</li>
+    </ul>
 
-Base de datos:
+    <h3>Base de Datos:</h3>
+    <ul>
+      <li>Oracle</li>
+    </ul>
 
-Oracle
+    <h3>Herramientas:</h3>
+    <ul>
+      <li>GitHub</li>
+    </ul>
+  </section>
 
-Herramientas:
+  <section>
+    <h2>Uso</h2>
+    <ul>
+      <li><strong>Registro de usuario:</strong> Los usuarios se registran con correo y contraseña.</li>
+      <li><strong>Explorar productos:</strong> Vista por categorías (periféricos, consolas, etc.).</li>
+      <li><strong>Agregar al carrito:</strong> Los productos pueden añadirse al carrito.</li>
+      <li><strong>Finalizar compra:</strong> Incluye pago y confirmación de pedido.</li>
+    </ul>
+  </section>
 
-GitHub
+  <section>
+    <h2>Usuarios</h2>
+    <ul>
+      <li><strong>Usuario común:</strong> Puede registrarse, comprar, añadir/eliminar productos del carrito y elegir métodos de pago.</li>
+      <li><strong>Administrador:</strong> Tiene acceso total: gestión de usuarios, edición de productos, configuración de cuentas y visualización de compras.</li>
+    </ul>
+  </section>
 
+  <section>
+    <h2>Desarrolladoras</h2>
+    <p>Aylen Rios<br>Javiera Banda</p>
+  </section>
 
-Uso:
+</body>
+</html>
 
-Registro de usuario: Los usuarios pueden registrarse usando su correo electrónico y contraseña.
-
-Explorar productos: Los usuarios pueden ver productos categorizados (periféricos, consolas, etc.).
-
-Agregar al carrito: Los usuarios pueden agregar productos al carrito de compras.
-
-Finalizar compra: Los usuarios pueden proceder al pago y comprar los productos.
-
-Usuarios: 
-
-Personal natural, pueden registrarse, comprar, añadir y eliminar productos del carrito y elegir metodos de pago.
-Admin, contempla acceso al sistema de forma completa, inclyendo la gestión de usuarios, editar, configurar cuentas de usuarios, visualizar compras y editar productos.
 
 Desarrolladoras
 Aylen Rios
