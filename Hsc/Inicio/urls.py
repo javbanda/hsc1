@@ -81,3 +81,24 @@ urlpatterns = [
     path('api/', include('rest_api.urls'))
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+import requests
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def obtener_dolar(request):
+    try:
+        url = 'https://mindicador.cl/api/dolar'
+        response = requests.get(url)
+        data = response.json()
+        valor_dolar = data['serie'][0]['valor']
+        fecha = data['serie'][0]['fecha']
+        return Response({
+            'valor_dolar': valor_dolar,
+            'fecha': fecha
+        })
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
+
+path('api/dolar/', obtener_dolar, name="obtener_dolar"),

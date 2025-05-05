@@ -344,5 +344,44 @@ def limpiar_producto(request,usuario):
     return render(request,'Inicio/carrito.html',contexto)
 
 
+import requests
+from django.http import JsonResponse
 
+def obtener_dolar(request):
+    try:
+        response = requests.get('https://mindicador.cl/api/dolar')
+        data = response.json()
+
+        valor_dolar = data['serie'][0]['valor']
+        fecha = data['serie'][0]['fecha']
+
+        return JsonResponse({
+            'moneda': 'dólar',
+            'valor': valor_dolar,
+            'fecha': fecha
+        })
+
+    except Exception as e:
+        return JsonResponse({'error': 'No se pudo obtener el valor del dólar', 'detalle': str(e)}, status=500)
+
+
+# --- API externa para obtener valor del dólar ---
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+import requests
+
+@api_view(['GET'])
+def obtener_dolar(request):
+    try:
+        url = 'https://mindicador.cl/api/dolar'
+        response = requests.get(url)
+        data = response.json()
+        valor_dolar = data['serie'][0]['valor']
+        fecha = data['serie'][0]['fecha']
+        return Response({
+            'valor_dolar': valor_dolar,
+            'fecha': fecha
+        })
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
 

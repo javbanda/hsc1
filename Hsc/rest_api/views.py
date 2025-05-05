@@ -164,3 +164,22 @@ def lista_cliente(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+import requests  # Asegúrate de tenerlo importado arriba
+
+@api_view(['GET'])
+def obtener_clima(request):
+    ciudad = request.query_params.get('ciudad', 'Santiago')
+    api_key = 'TU_API_KEY_AQUI'  # Reemplaza esto con tu verdadera API Key
+    url = f'http://api.openweathermap.org/data/2.5/weather?q={ciudad}&appid={api_key}&units=metric&lang=es'
+
+    try:
+        respuesta = requests.get(url)
+        datos = respuesta.json()
+        return Response({
+            'ciudad': ciudad,
+            'temperatura': datos['main']['temp'],
+            'descripcion': datos['weather'][0]['description']
+        })
+    except Exception as e:
+        return Response({'error': str(e)}, status=500)
