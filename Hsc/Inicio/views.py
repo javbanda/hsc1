@@ -385,3 +385,5 @@ def obtener_dolar(request):
     except Exception as e:
         return Response({'error': str(e)}, status=500)
 
+def ver_dolar_chart(request):
+    return render(request, 'Inicio/dolar_chart.html')

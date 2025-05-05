@@ -102,3 +102,5 @@ def obtener_dolar(request):
         return Response({'error': str(e)}, status=500)
 
 path('api/dolar/', obtener_dolar, name="obtener_dolar"),
+
+path('ver_dolar/', views.ver_dolar_chart, name='ver_dolar'),
