@@ -53,7 +53,7 @@
 
   <section>
     <h2>Desarrolladoras</h2>
-    <p>Aylen Rios<br>Javiera Banda</p>
+    <p>Ayline Rios<br>Javiera Banda</p>
   </section>
 
 </body>
