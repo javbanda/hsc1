@@ -3,112 +3,141 @@
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'Inicio/css/estilo-index.css' %}">
+<style>
+    body {
+        background-color: #0e0e1a;
+        color: #e0e0e0;
+    }
+
+    h1, h2 {
+        color: #00ffff;
+        text-shadow: 0 0 10px #8a2be2;
+        margin-bottom: 20px;
+    }
+
+    .compsyper {
+        padding: 60px 0;
+        background-color: rgba(10, 10, 30, 0.95);
+        border-radius: 10px;
+        box-shadow: 0 0 20px #8a2be2;
+        margin-bottom: 40px;
+    }
+
+    .caja {
+        background-color: #1f1f3b;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 15px #8a2be2;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .caja:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 25px #00ffff;
+    }
+
+    .txtcaja {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ffffff;
+        text-shadow: 0 0 5px #8a2be2;
+    }
+
+    .img-hd {
+        text-align: center;
+        padding: 40px 0;
+        background: linear-gradient(135deg, #320661, #0e0e1a);
+        border-bottom: 2px solid #00ffff;
+    }
+
+    .logo-img img {
+        max-width: 250px;
+        filter: drop-shadow(0 0 15px #00ffff);
+    }
+
+    #img {
+        border-radius: 10px;
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 12px #8a2be2;
+    }
+</style>
 {% endblock css %}
 
 {% block imagen %}
 <div class="img-hd">
-    <div class="logo-img"><img class="img-fluid" src="{% static 'Inicio/img/logo/logo1.png' %}"></div>
-    <div class="">
+    <div class="logo-img">
+        <img class="img-fluid" src="{% static 'Inicio/img/logo/logo1.png' %}" alt="Logo">
     </div>
-
 </div>
 {% endblock imagen %}
 
 {% block contenido %}
 <section class="compsyper">
-    <div class="container">
-        <h1 class="text-break">Acá podrás encontrar lo mejor para poder armar tu setup 	&#128293;</h1>
-        <h2>Periféricos para la bestia &#9889;</h2>
-        <div class="row align-items-center">
+    <div class="container text-center">
+        <h1>Acá podrás encontrar lo mejor para poder armar tu setup 🔥</h1>
+        <h2>Periféricos para la bestia ⚡</h2>
+        <div class="row justify-content-center">
             <div class="col-xl-4 col-md-6 col-sm-12">
                 <article class="caja">
-                    
-                    {% if usuario %}
-                        <a href="{% url 'mostrarMic' usuario.username %}"><img src="{% static 'Inicio/img/img-index/microfono.jpg' %}" alt="microfono gamer" class="img-fluid" id="img"></a>
-                        <p class="txtcaja">MICRÓFONOS</p>
-                    {% else %}
-                        <a href="{% url 'iniciar' %}"><img src="{% static 'Inicio/img/img-index/microfono.jpg' %}" alt="microfono gamer" class="img-fluid" id="img"></a>
-                        <p class="txtcaja">MICRÓFONOS</p>
-                        
-                    {% endif %}
+                    <a href="{% if usuario %}{% url 'mostrarMic' usuario.username %}{% else %}{% url 'iniciar' %}{% endif %}">
+                        <img src="{% static 'Inicio/img/img-index/microfono.jpg' %}" alt="microfono gamer" class="img-fluid" id="img">
+                    </a>
+                    <p class="txtcaja">MICRÓFONOS</p>
                 </article>
             </div>
             <div class="col-xl-4 col-md-6 col-sm-12">
                 <article class="caja">
-                    {%if usuario %}
-                    <a href="{% url 'teclados'  usuario.username %}"><img src="{% static 'Inicio/img/img-index/teclado.jpg' %}" alt="teclado gamer" class="img-fluid" id="img"></a>
-                    <p class="txtcaja"> TECLADOS</p>
-                    {%else%}
-                    <a href="{% url 'iniciar' %}"><img src="{% static 'Inicio/img/img-index/teclado.jpg' %}" alt="teclado gamer" class="img-fluid" id="img"></a>
-                    <p class="txtcaja"> TECLADOS</p>
-                    {%endif%}
+                    <a href="{% if usuario %}{% url 'teclados' usuario.username %}{% else %}{% url 'iniciar' %}{% endif %}">
+                        <img src="{% static 'Inicio/img/img-index/teclado.jpg' %}" alt="teclado gamer" class="img-fluid" id="img">
+                    </a>
+                    <p class="txtcaja">TECLADOS</p>
                 </article>
             </div>
             <div class="col-xl-4 col-md-12 col-sm-12">
                 <article class="caja">
-                    {%if usuario%}
-                    <a href="{% url 'mostrarMouse' usuario.username %}"><img src="{% static 'Inicio/img/img-index/mouse.jpg' %}" alt="mouse gamer" class="img-fluid" id="img"></a>
-                    <p class="txtcaja"> MOUSE GAMER</p>
-                    {%else%}
-                    <a href="{% url 'iniciar' %}"><img src="{% static 'Inicio/img/img-index/mouse.jpg' %}" alt="mouse gamer" class="img-fluid" id="img"></a>
-                    <p class="txtcaja"> MOUSE GAMER</p>
-                    {%endif%}
-
+                    <a href="{% if usuario %}{% url 'mostrarMouse' usuario.username %}{% else %}{% url 'iniciar' %}{% endif %}">
+                        <img src="{% static 'Inicio/img/img-index/mouse.jpg' %}" alt="mouse gamer" class="img-fluid" id="img">
+                    </a>
+                    <p class="txtcaja">MOUSE GAMER</p>
                 </article>
             </div>
-            
         </div>
     </div>
-</section>    
+</section>
+
 <section class="compsyper">
-    
-    <div class="container">
-        <h2>Componentes para armar a la bestia &#129409;</h2>
-        <div class="row align-items-center">
+    <div class="container text-center">
+        <h2>Componentes para armar a la bestia 🦁</h2>
+        <div class="row justify-content-center">
             <div class="col-xl-4 col-md-6 col-sm-12">
                 <article class="caja">
-                    {%if usuario %}
-                        <a href="{% url 'mostrarGrafica' usuario.username  %}"><img src="{% static 'Inicio/img/img-index/grafica.png' %}" alt="tarjeta grafica" class="img-fluid" id="img"></a>
-                        <p class="txtcaja"> TARJETAS GRÁFICAS</p>
-                    {%else%}
-                        <a href="{% url 'iniciar' %}"><img src="{% static 'Inicio/img/img-index/grafica.png' %}" alt="tarjeta grafica" class="img-fluid" id="img"></a>
-                        <p class="txtcaja"> TARJETAS GRÁFICAS</p>
-                    {%endif%}
+                    <a href="{% if usuario %}{% url 'mostrarGrafica' usuario.username %}{% else %}{% url 'iniciar' %}{% endif %}">
+                        <img src="{% static 'Inicio/img/img-index/grafica.png' %}" alt="tarjeta grafica" class="img-fluid" id="img">
+                    </a>
+                    <p class="txtcaja">TARJETAS GRÁFICAS</p>
                 </article>
             </div>
             <div class="col-xl-4 col-md-6 col-sm-12">
                 <article class="caja">
-                    {%if usuario %}
-                        <a href="{% url 'mostrarProcesador' usuario.username  %}"><img src="{% static 'Inicio/img/img-index/procesador.jpg' %}" alt="tarjeta grafica" class="img-fluid" id="img"></a>
-                        <p class="txtcaja"> PROCESADORES</p>
-                    {%else%}
-                        <a href="{% url 'iniciar' %}"><img src="{% static 'Inicio/img/img-index/procesador.jpg' %}" alt="tarjeta grafica" class="img-fluid" id="img"></a>
-                        <p class="txtcaja"> PROCESADORES</p>
-                    {%endif%}
+                    <a href="{% if usuario %}{% url 'mostrarProcesador' usuario.username %}{% else %}{% url 'iniciar' %}{% endif %}">
+                        <img src="{% static 'Inicio/img/img-index/procesador.jpg' %}" alt="procesador" class="img-fluid" id="img">
+                    </a>
+                    <p class="txtcaja">PROCESADORES</p>
                 </article>
             </div>
             <div class="col-xl-4 col-md-12 col-sm-12">
                 <article class="caja">
-                    {%if usuario%}
-                    <a href="{% url 'mostrarRam' usuario.username%}"><img src="{% static 'Inicio/img/img-index/rampc.jpg' %}" alt="trident z rgb" class="img-fluid" id="img"></a>
+                    <a href="{% if usuario %}{% url 'mostrarRam' usuario.username %}{% else %}{% url 'iniciar' %}{% endif %}">
+                        <img src="{% static 'Inicio/img/img-index/rampc.jpg' %}" alt="memoria RAM" class="img-fluid" id="img">
+                    </a>
                     <p class="txtcaja">MEMORIAS</p>
-                    {%else%}
-                    <a href="{% url 'iniciar' %}"><img src="{% static 'Inicio/img/img-index/rampc.jpg' %}" alt="trident z rgb" class="img-fluid" id="img"></a>
-                    <p class="txtcaja">MEMORIAS</p>
-                    {%endif%}
                 </article>
             </div>
-            
         </div>
     </div>
-</section>     
+</section>
 {% endblock contenido %}
-    
-
-
-
-
-
-
-
-<!-- 01001000 01101111 01101100 01100001 00100000 01001101 01110101 01101110 01100100 01101111 00100001 -->

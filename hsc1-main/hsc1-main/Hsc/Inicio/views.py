@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import (Usuario, Direccion, Comuna, Region, TipoUsuario, 
+from .models import (Usuario, TipoUsuario, Direccion, Comuna, Region, TipoUsuario, 
                      Producto, Marca, Categoria, TipoProd)
 from .Carrito import Carrito
 from rest_framework.decorators import api_view
