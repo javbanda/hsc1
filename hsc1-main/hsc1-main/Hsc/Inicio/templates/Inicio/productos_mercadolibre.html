@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Productos desde Mercado Libre</h2>
+
+    <!-- Formulario de búsqueda -->
+    <form method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="query" class="form-control" placeholder="Buscar productos..." value="{{ request.GET.query }}">
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+        </div>
+    </form>
+
+    <!-- Resultados de productos -->
+    <div class="row">
+        {% for producto in productos %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ producto.thumbnail }}" class="card-img-top" alt="{{ producto.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ producto.title }}</h5>
+                    <p class="card-text">Precio: ${{ producto.price }}</p>
+                    <a href="{{ producto.permalink }}" target="_blank" class="btn btn-primary">Ver en MercadoLibre</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p>No se encontraron productos para esta búsqueda.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

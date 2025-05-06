@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfico del valor del dólar</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Valor del Dólar (últimos 10 días)</h1>
+    <canvas id="dolarChart" width="400" height="200"></canvas>
+
+    <script>
+        fetch("https://mindicador.cl/api/dolar")
+        .then(response => response.json())
+        .then(data => {
+            const fechas = data.serie.slice(0, 10).reverse().map(d => new Date(d.fecha).toLocaleDateString());
+            const valores = data.serie.slice(0, 10).reverse().map(d => d.valor);
+
+            const ctx = document.getElementById('dolarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: fechas,
+                    datasets: [{
+                        label: 'Valor del dólar en CLP',
+                        data: valores,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener datos del dólar:', error);
+        });
+    </script>
+</body>
+</html>
