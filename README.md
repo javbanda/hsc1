@@ -23,6 +23,8 @@
 
   <section>
     <h2>Tecnologías Utilizadas</h2>
+     <li>GitHub</li>
+    <li>Rawg</li>
     <h3>Frontend:</h3>
     <ul>
       <li>HTML</li>
